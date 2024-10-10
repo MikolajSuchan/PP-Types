@@ -1,6 +1,8 @@
 ﻿// Write required code.
 
 // Data - do not change it in code!
+using System.Xml.Linq;
+
 string[] names = {
     "Mickey Mouse", "Minnie Mouse", "Donald Duck", "Goofy", "Pluto", "Daisy Duck", "Simba", "Nala", 
     "Timon", "Pumbaa", "Mufasa", "Ariel", "Flounder", "Sebastian", "Ursula", "Belle", "Beast", "Gaston", 
@@ -17,19 +19,48 @@ void PrintGroups(string[] t, int perLine)
 
     // Write required code.
 
+    for (int i = 0; i < t.Length; i++)
+    {
+
+        Console.Write(t[i]);
+        if(i<t.Length-1){Console.Write(',');}
+        if((i)%perLine==0){Console.WriteLine();}
+
+    }
+    Console.WriteLine(".");
 }
 
 
-// Print all array elements in *perLine* columns.
-// Each column must have given *width* (number of chars).
-// Columns should be separated by "| ".
-// If element is too long it should be trimmed.
+    // Print all array elements in *perLine* columns.
+    // Each column must have given *width* (number of chars).
+    // Columns should be separated by "| ".
+    // If element is too long it should be trimmed.
 
-void PrintColumns(string[] t, int perLine, int width)
-{
+    void PrintColumns(string[] t, int perLine, int width)
+    {
 
     // Write required code.
 
+    for (int i = 0; i < t.Length; i++)
+    {
+        // Przycięcie elementu do wymaganej szerokości, jeśli jest za długi
+        string wid = t[i].Length > width ? t[i].Substring(0, width) : t[i];
+
+        // Wyświetlanie elementu z wyrównaniem do lewej i w ustalonej szerokości
+        Console.Write(wid.PadRight(width));
+
+        // Jeśli to nie ostatni element w linii, dodaj separator "| "
+        if ((i + 1) % perLine != 0 && i != t.Length - 1)
+        {
+            Console.Write("| ");
+        }
+
+        // Nowa linia po wydrukowaniu perLine elementów lub po ostatnim elemencie
+        if ((i + 1) % perLine == 0 || i == t.Length - 1)
+        {
+            Console.WriteLine();
+        }
+    }
 }
 
 
