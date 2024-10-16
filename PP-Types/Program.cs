@@ -21,13 +21,15 @@ void PrintGroups(string[] t, int perLine)
 
     for (int i = 0; i < t.Length; i++)
     {
-
         Console.Write(t[i]);
+
         if(i<t.Length-1){Console.Write(',');}
-        if((i)%perLine==0){Console.WriteLine();}
+
+        if (i == t.Length - 1) { Console.Write('.'); }
+
+        if ((i+1)%perLine==0){Console.WriteLine();}
 
     }
-    Console.WriteLine(".");
 }
 
 
@@ -43,19 +45,15 @@ void PrintGroups(string[] t, int perLine)
 
     for (int i = 0; i < t.Length; i++)
     {
-        // Przycięcie elementu do wymaganej szerokości, jeśli jest za długi
         string wid = t[i].Length > width ? t[i].Substring(0, width) : t[i];
 
-        // Wyświetlanie elementu z wyrównaniem do lewej i w ustalonej szerokości
         Console.Write(wid.PadRight(width));
 
-        // Jeśli to nie ostatni element w linii, dodaj separator "| "
         if ((i + 1) % perLine != 0 && i != t.Length - 1)
         {
             Console.Write("| ");
         }
 
-        // Nowa linia po wydrukowaniu perLine elementów lub po ostatnim elemencie
         if ((i + 1) % perLine == 0 || i == t.Length - 1)
         {
             Console.WriteLine();
@@ -137,7 +135,7 @@ Aurora         | Maleficent     | Rapunzel       | Flynn Rider    | Elsa
 Anna           | Olaf           | Moana          | Maui           | Hercules
 */
 
-Console.WriteLine("\n\nPrintColumns(names, 7, 10):\n");
+Console.WriteLine("\n\nPrintColumns(names, 8, 10):\n");
 PrintColumns(names, 8, 10);
 /*
 Mickey Mou| Minnie Mou| Donald Duc| Goofy     | Pluto     | Daisy Duck| Simba     | Nala
