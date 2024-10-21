@@ -30,6 +30,7 @@ void PrintGroups(string[] t, int perLine)
         if ((i+1)%perLine==0){Console.WriteLine();}
 
     }
+
 }
 
 
@@ -58,7 +59,9 @@ void PrintGroups(string[] t, int perLine)
         {
             Console.WriteLine();
         }
+
     }
+
 }
 
 
